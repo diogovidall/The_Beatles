@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Jude</title>
+</head>
+
+<body>
+    Quantidade de Takes:<input type="number" placeholder="Takes" id="input_takes"><br>
+    Quantidade Mínima que o padrão 2 aparece:<input type="number" placeholder="Padrão 2" id="input_padrao"><br>
+    <button onclick="simular()">Simular</button>
+    <div id="div_takes"></div>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+<script>
+    function simular() {
+        var takes = Number(input_takes.value);
+        var contagem = Number(input_padrao.value);
+        var padrao1 = "Nah";
+        var padrao2 = "";
+        var somaTotal = contagem + takes;
+        var mediaNah = (somaTotal * 9) + 18 / takes;
+        var totalNah = (somaTotal * 9) + 18 * takes;
+
+        //Nah padrão 1
+        for (var i = 1; i < 9; i++) {
+            padrao1;
+        }
+
+        //Nah padrão 2
+        for (var i = 0; i < somaTotal; i++) {
+            if (somaTotal % 2 == 0) {
+                padrao2 += `<span style= "color:blue;">Nah,nah,nah,nah,nah,nah,nah,nah,nah, </span><br>Hey, Jude<br>`
+                
+            } else {
+                (somaTotal % 2 == 1) 
+                padrao2 += `<span style= "color:red;">Nah,nah,nah,nah,nah,nah,nah,nah,nah, </span><br>Hey, Jude<br>`
+            }
+            padrao2;
+            
+        }
+
+        //Repetição dos takes
+        for (var i = 0; i < takes; i++) {
+            if (takes % 2 == 0) {
+                padrao1 = `<span style= "color:blue;">Nah,nah,nah,nah,nah,nah,nah,nah,nah</span>`
+
+            } else if (takes % 2 == 1) {
+                padrao1 = `<span style= "color:red;">Nah,nah,nah,nah,nah,nah,nah,nah,nah</span>`
+
+            }
+
+        }
+        div_takes.innerHTML += `<b>Quantidade de takes ${takes}.<br><br></b>:;`
+        div_takes.innerHTML += `Hey, Jude, don't make it bad<br>
+                Take a sad song and make it better<br>
+                Remember to let her into your heart<br>
+                Then you can start to make it better<br>
+                Hey, Jude, don't be afraid<br>
+                You were made to go out and get her<br>
+                The minute you let her under your skin<br>
+                Then you begin to make it better<br>
+                And anytime you feel the pain,<br>
+                Hey, Jude, refrain<br>
+                Don't carry the world upon your shoulders<br>
+                For well you know that it's a fool<br>
+                Who plays it cool<br>
+                By making his world a little colder<br>
+               ${padrao1}<br>
+                Hey, Jude, don't let me down<br>
+                You have found her, now go and get her<br>
+                Remember to let her into your heart<br>
+                Then you can start to make it better<br>
+                So let it out and let it in,<br>
+                Hey, Jude, begin<br>
+                You're waiting for someone to perform with<br>
+                And don't you know that it's just you,<br>
+                Hey, Jude, you'll do<br>
+                The movement you need is on your shoulder<br>
+                ${padrao1}<br>
+                Hey, Jude, don't make it bad<br>
+                Take a sad song and make it better<br>
+                Remember to let her under your skin<br>
+                Then you'll begin to make it better, better, better,<br> better, better... oh!<br>
+                ${padrao2}<br><hr>`;
+
+                div_msg.innerHTML = `<b>Quantidade Total de Takes:</b> ${takes}<br>
+                <b>Média de "Nah" por takes:</b> ${mediaNah}<br>
+                <b>Quantidade Total de "Nah" somada por takes:</b> ${totalNah}<br>`;
+
+                if(totalNah >= 0 && totalNah  <= 487) {
+                   div_msg.innerHTML = `<img src="beatles_felizes.png" alt="Beatles Felizes">`;
+
+                }else if(totalNah >= 648 && totalNah <= 810) {
+                    div_msg.innerHTML = `<img src="beatles_medio.jpeg" alt="Beatles Felizes">`;
+
+                } else {
+                    div_msg.innerHTML = `<img src="beatles_desanimados.jpg" alt="Beatles Felizes">`;
+                }
+    }
+
+
+
+</script>
